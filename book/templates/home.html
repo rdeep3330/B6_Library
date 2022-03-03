@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Django</title>
+    </head>
+<body>
+<h2>Book Form</h2>
+<hr>
+
+<form action="{% url 'homepage' %}" method="post">
+    {% csrf_token %}
+    
+    {% if single_book %}
+        Book ID:- <input type="number" name="bid" value="{{single_book.id}}" readonly><br><br>
+    {% endif %}
+
+    Book Name:- <input type="text" name="bname" value="{{single_book.name}}" placeholder="Enter Book Name"><br><br>
+    Book Price:- <input type="number" name="bprice" value="{{single_book.price}}" placeholder="Enter Book Price"><br><br>
+    Book Qty:- <input type="number" name="bqty" value="{{single_book.qty}}" placeholder="Enter Book Qty"><br><br>
+    Book Type:- <input type="text" name="btype" value="{{single_book.btype}}" placeholder="Enter book type"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<br>
+<a href="{% url 'show_all_books' %}">Show Books</a>
+
+
+
+</body>
+</html>
+
